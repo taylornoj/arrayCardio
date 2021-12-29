@@ -31,3 +31,59 @@ const inventorNames = inventors.map(inventor =>
       `${inventor.first} ${inventor.last}`);
 ```
 ![inventors names](https://github.com/taylornoj/arrayCardio/blob/master/docs/firstLastNames.jpg?raw=true)
+
+3. Sort the inventors by birth year, oldest to youngest:
+```javascript
+const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+```
+![oldest to youngest](https://github.com/taylornoj/arrayCardio/blob/master/docs/birthyearSort.jpg?raw=true)
+
+4. Add up the years lived, of all inventors:
+```javascript
+const totalYears = inventors.reduce((sum, inventor) => {
+      return sum + (inventor.passed - inventor.year);
+    }, 0);
+```
+![total years lived](https://github.com/taylornoj/arrayCardio/blob/master/docs/totalYearsLived.jpg?raw=true)
+
+5. Sort the inventors by years lived:
+```javascript
+const oldest = inventors.sort(function (a, b) {
+      const olderPerson = a.passed - a.year;
+      const youngerPerson = b.passed - b.year;
+      return olderPerson > youngerPerson ? -1 : 1;
+    });
+```
+![years lived](https://github.com/taylornoj/arrayCardio/blob/master/docs/oldestToYoungest.jpg?raw=true)
+
+6. Work was done on dev tools via Wikipedia page
+
+7. Sort list of people alphabetically by last name:
+My solution:
+```javascript
+const lastName = people.sort();
+    console.log(lastName);
+```
+
+Wes' solution:
+```javascript
+const alpha = people.sort((lastOne, nextOne) => {
+      const [aLast, aFirst] = lastOne.split(', ');
+      const [bLast, bFirst] = nextOne.split(', ');
+      return aLast > bLast ? 1 : -1;
+    });
+```
+![alpha sort](https://github.com/taylornoj/arrayCardio/blob/master/docs/sortAlpha.png?raw=true)
+
+8. Sum up the instances of each:
+```javascript
+const transportation = data.reduce(function (obj, item) {
+      if (!obj[item]) { 
+        obj[item] = 0;  
+      }
+      obj[item]++; 
+      return obj;
+
+    }, {}); 
+```
+![sum all transpo](https://github.com/taylornoj/arrayCardio/blob/master/docs/reduce.jpg?raw=true)
